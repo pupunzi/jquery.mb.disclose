@@ -1,3 +1,10 @@
+/*
+ * Copyright (c) 2001-2012. Matteo Bicocchi (Pupunzi)
+ * 	      Open Lab, Florence - Italy
+ * 	      http://pupunzi.com
+ * 	      mbicocchi@open-lab.com
+ */
+
 /*******************************************************************************
  * jQuery.mb.components: jquery.mb.CSSAnimate
  * version: 1.0- 04/12/11 - 18
