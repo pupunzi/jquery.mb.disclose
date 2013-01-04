@@ -1,56 +1,30 @@
 /*
  * ******************************************************************************
  *  jquery.mb.components
+ *  file: jquery.mb.disclose.js
  *
- *  Copyright (c) 2001-2013. Matteo Bicocchi (Pupunzi); Open lab srl, Firenze - Italy
+ *  Copyright (c) 2001-2013. Matteo Bicocchi (Pupunzi);
+ *  Open lab srl, Firenze - Italy
  *  email: matteo@open-lab.com
- *  site: http://pupunzi.com
+ *  site: 	http://pupunzi.com
+ *  blog:	http://pupunzi.open-lab.com
+ * 	http://open-lab.com
  *
  *  Licences: MIT, GPL
  *  http://www.opensource.org/licenses/mit-license.php
  *  http://www.gnu.org/licenses/gpl.html
+ *
+ *  last modified: 04/01/13 17.13
  *  *****************************************************************************
  */
 
 /*******************************************************************************
  * jQuery.mb.components: jquery.mb.CSSAnimate
- * version: 1.0- 04/12/11 - 18
- * © 2001 - 2011 Matteo Bicocchi (pupunzi), Open Lab
- *
- * Licences: MIT, GPL
- * http://www.opensource.org/licenses/mit-license.php
- * http://www.gnu.org/licenses/gpl.html
- *
- * email: mbicocchi@open-lab.com
- * site: http://pupunzi.com
- *
- *  params:
-
- @opt        -> the CSS object (ex: {top:300, left:400, ...})
- @duration   -> an int for the animation duration in milliseconds
- @ease       -> ease  ||  linear || ease-in || ease-out || ease-in-out  ||  cubic-bezier(<number>, <number>,  <number>,  <number>)
- @properties -> properties to which CSS3 transition should be applied.
- @callback   -> a callback function called once the transition end
-
- example:
-
- $(this).CSSAnimate({top: t, left:l, width:w, height:h}, 2000, "ease-out", "all", function() {el.anim();})
  ******************************************************************************/
 
 $.fn.CSSAnimate=function(a,c,h,i,j,e){return this.each(function(){var d=$(this);if(0!==d.length&&a){"function"==typeof c&&(e=c);"function"==typeof h&&(e=h);"function"==typeof i&&(e=i);"function"==typeof j&&(e=j);if("string"==typeof c)for(var k in $.fx.speeds)if(c==k){c=$.fx.speeds[k];break}else c=null;c||(c=$.fx.speeds._default);i||(i="cubic-bezier(0.65,0.03,0.36,0.72)");j||(j="all");h||(h=0);if(jQuery.support.transition){var b="",f="transitionEnd";$.browser.webkit?(b="-webkit-",f="webkitTransitionEnd"): $.browser.mozilla?(b="-moz-",f="transitionend"):$.browser.opera?(b="-o-",f="oTransitionEnd"):$.browser.msie&&(b="-ms-",f="msTransitionEnd");for(var g in a)"transform"===g&&(a[b+"transform"]=a[g],delete a[g]),"transform-origin"===g&&(a[b+"transform-origin"]=a[g],delete a[g]);d.css(b+"transition-property",j);d.css(b+"transition-duration",c+"ms");d.css(b+"transition-delay",h+"ms");d.css(b+"transition-timing-function",i);setTimeout(function(){d.css(a)},1);var l=function(){d.get(0).removeEventListener(f, l,!1);d.css(b+"transition","");"function"==typeof e&&e()};d.get(0).addEventListener(f,l,!1)}else d.animate(a,c,e)}})};$.fn.CSSAnimateStop=function(){var a="";$.browser.webkit?a="-webkit-":$.browser.mozilla?a="-moz-":$.browser.opera?a="-o-":$.browser.msie&&(a="-ms-");$(this).css(a+"transition","")}; $.support.transition=function(){var a=(document.body||document.documentElement).style;return void 0!==a.transition||void 0!==a.WebkitTransition||void 0!==a.MozTransition||void 0!==a.MsTransition||void 0!==a.OTransition}();
 
 /*******************************************************************************
- * jQuery.mb.components: jquery.mb.disclose
- * version: 1.0
- * © 2001 - 2012 Matteo Bicocchi (pupunzi), Open Lab
- *
- * Licences: MIT, GPL
- * http://www.opensource.org/licenses/mit-license.php
- * http://www.gnu.org/licenses/gpl.html
- *
- * email: mbicocchi@open-lab.com
- * site: http://pupunzi.com
- *
  DATA:
 
  CONTAINERS:
@@ -70,7 +44,6 @@ $.fn.CSSAnimate=function(a,c,h,i,j,e){return this.each(function(){var d=$(this);
  data-animationtime
  data-animationdelay
  data-ease
-
  ******************************************************************************/
 
 (function($){
