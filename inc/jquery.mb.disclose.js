@@ -251,6 +251,8 @@ function uncamel(a){return a.replace(/([A-Z])/g,function(a){return"-"+a.toLowerC
 
 		goTo:function(el, idx, stop){
 
+			console.debug("goTo", idx);
+
 			if(el.pages.length<=1)
 				return;
 
